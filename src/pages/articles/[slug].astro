@@ -23,7 +23,7 @@ const { article } = Astro.props
 ---
 
 <Layout title={`${article.title} | TECH BLOG`}>
-	<main>
+	<main class="detail-main">
 		<section>
 			<div class="container">
 				<div class="blog-detail">
@@ -34,5 +34,4 @@ const { article } = Astro.props
 			</div>
 		</section>
 	</main>
-	<Aside />
 </Layout>
