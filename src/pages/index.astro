@@ -14,28 +14,31 @@ const { items: articles } = await newtClient.getContents<Article>({
 })
 ---
 
-<Layout title="">
+<Layout title="TECH BLOG">
 	<main>
 		<section>
 			<div class="container">
 				<div class="blog-area" id="blog-area">
+					<div class="blog-content">
 					{
 						articles.map((article, index) => {
 								return (
-									<div class="blog-card" data-aos="fade-up" data-aos-delay={index * 50} data-category={article.category.name}>
-										<a href={`/articles/${article.slug}`}>
-										<div class="img-category">
+									<a href={`/articles/${article.slug}`} data-aos-delay={index * 50} data-category={article.category.name} class="blog-item">
+										<div class="blog-img">
 											<img src={article.coverImage ? article.coverImage.src : ""} alt={article.title} width="400" height="300" loading="lazy" />
-											<p>{article.category.name}</p>
 										</div>
-										<div class="date"><span class="material-icons schedule-icon">schedule</span>
-										{ new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(article.date))}</div>
-										<h2>{article.title}</h2>
-										</a>
-									</div>
+										<div class="blog-text">
+											<div class="blog-line1">
+												<div class="category">{article.category.name}</div>
+												<div class="date"><span class="material-icons schedule-icon">schedule</span>{ new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(article.date))}</div>
+											</div>
+											<h2>{article.title}</h2>
+										</div>
+									</a>
 								)
 						})
 					}
+					</div>
 				</div>			
 			</div>
 		</section>

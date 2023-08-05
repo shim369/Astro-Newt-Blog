@@ -2,6 +2,7 @@
 import '../styles/css/style.css';
 ---
 <aside>
+	<h2>Category</h2>
     <div class="btns">
         <button onclick="filterBlogs('All');" class="btn">All</button>
         <button onclick="filterBlogs('Next');" class="btn">Next.js</button>
@@ -13,7 +14,7 @@ import '../styles/css/style.css';
 
 <script lang="ts">
 	function filterBlogs(category) {
-		var blogs = document.getElementsByClassName("blog-card");
+		var blogs = document.getElementsByClassName("blog-item");
 		if (category === "All") {
 			for (var i = 0; i < blogs.length; i++) {
 				blogs[i].style.display = "block";

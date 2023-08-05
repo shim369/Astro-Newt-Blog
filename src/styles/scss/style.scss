@@ -4,16 +4,134 @@
     box-sizing: border-box;
 }
 
-.contents {
-    display: flex;
+:root {
+    --main-color: rgb(74, 99, 107);
+    --accent-color: #e7c942;
 }
 
+html {
+    scroll-behavior: smooth;
+    background: #fff;
+}
+
+body {
+    background: #e2e8ea;
+    font-family: 'Bruno Ace', sans-serif;
+    word-break: break-all;
+    position: relative;
+}
+
+.contents {
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2%;
+}
+
+header {
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 80px;
+    h1 {
+        a {
+            text-decoration: none;
+            color: var(--main-color);
+        }
+    }
+}
+
+
 main {
-    width: 70%;
+    width: 80%;
+    min-height: 100vh;
+}
+
+.blog-content {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
+    .blog-item {
+        position: relative;
+        z-index: 1;
+        width: 30%;
+        margin: 0 1.5% 40px;
+        background: #fff;
+        box-shadow: 0px 11px 15px -4px #cfcece;
+        text-decoration: none;
+        transition: .3s;
+        @media (max-width: 800px) {
+            width: 49%;
+        }
+        @media (max-width: 480px) {
+            width: 100%;
+        }
+        &:hover {
+            box-shadow: none;
+        }
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            overflow:hidden;
+            img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                position: relative;
+                z-index: 0;
+                &:hover {
+                    transform: scale(1.1, 1.1);
+                    transition: .3s;
+                }
+            }
+        }
+        .blog-text {
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .blog-line1 {
+            display: flex;
+            align-items: center;
+        }
+        .category {
+            background: var(--main-color);
+            color: #e2e8ea;
+            display: inline-block;
+            padding: 4px 8px;
+            margin-right: 10px;
+            font-size: .8em;
+        }
+        .date {
+            color: var(--main-color);
+            font-size: .8em;
+            display: flex;
+            align-items: center;
+            span {
+                margin-right: 2px;
+                font-size: 1.1em;
+            }
+        }
+        h2 {
+            margin-top: 10px;
+            color: var(--main-color);
+            font-weight: normal;
+            font-size: 1em;
+        }
+    }
 }
 
 aside {
-    width: 30%;
+    width: 18%;
+    h2 {
+        color: var(--main-color);
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }
 
 .btns {
@@ -21,9 +139,66 @@ aside {
     flex-direction: column;
     button {
         margin-bottom: 20px;
+        background: var(--main-color);
+        color: #fff;
+        padding: 20px;
+        cursor: pointer;
+        border: none;
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
+.blog-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 88vh;
+    background: #3f5156b0;
+    padding: 40px 3%;
+    margin-bottom: 80px;
+    h1 {
+        text-align: left;
+        font-size: 2em;
+        color: #e2e8ea;
+        margin-bottom: 20px;
+        @media (max-width: 800px) {
+            font-size: 1.8em;
+        }
+        @media (max-width: 480px) {
+            font-size: 1.3em;
+        }
+    }
+}
+
+.blog-detail-date {
+    color: #e2e8ea;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+    i {
+        margin-right: 2px;
+        font-size: 1.1em;
+    }
+
+}
+
+.blog-detail-text {
+    width: 100%;
+    color: #e2e8ea;
+    line-height: 1.5;
+    img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        margin-bottom: 20px;
     }
 }
 
 footer {
     text-align: center;
+    padding: 20px;
+    background: #fff;
 }

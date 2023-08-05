@@ -1,7 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import { newtClient } from '../../lib/newt'
-import type { Article } from '../../lib/newt'
+import Layout from '../../layouts/Layout.astro';
+import Aside from '../../components/Aside.astro';
+import { newtClient } from '../../lib/newt';
+import type { Article } from '../../lib/newt';
 import '../../styles/css/style.css';
 
 export const getStaticPaths = async () => {
@@ -21,18 +22,17 @@ export const getStaticPaths = async () => {
 const { article } = Astro.props
 ---
 
-<Layout title={`${article.title} | ASTRO BASE`}>
-	<main class="bg-gray">
-	<section>
-		<div class="container">
-			<div class="blog-detail-area">
-				<div class="blog-content">
+<Layout title={`${article.title} | TECH BLOG`}>
+	<main>
+		<section>
+			<div class="container">
+				<div class="blog-detail">
 				<h1>{article.title}</h1>
-				<div class="date"><span class="material-icons schedule-icon">schedule</span>{ new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(article.date))}</div>
-				<article set:html={article.body} />
+				<div class="blog-detail-date"><span class="material-icons schedule-icon">schedule</span>{ new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(article.date))}</div>
+				<div class="blog-detail-text" set:html={article.body} />
+				</div>
 			</div>
-			</div>
-		</div>
-	</section>
+		</section>
 	</main>
+	<Aside />
 </Layout>
