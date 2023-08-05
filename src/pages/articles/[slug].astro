@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 import { newtClient } from '../../lib/newt'
 import type { Article } from '../../lib/newt'
+import '../../styles/css/style.css';
 
 export const getStaticPaths = async () => {
   const { items: articles } = await newtClient.getContents<Article>({
