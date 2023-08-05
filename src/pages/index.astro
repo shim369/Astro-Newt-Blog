@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Aside from '../components/Aside.astro';
 import { newtClient } from '../lib/newt';
 import type { Article } from '../lib/newt';
 import '../styles/css/style.css';
@@ -17,11 +18,11 @@ const { items: articles } = await newtClient.getContents<Article>({
 	<main>
 		<section>
 			<div class="container">
-				<div class="blog-area">
+				<div class="blog-area" id="blog-area">
 					{
 						articles.map((article, index) => {
 								return (
-									<div class="blog-card" data-aos="fade-up" data-aos-delay={index * 50}>
+									<div class="blog-card" data-aos="fade-up" data-aos-delay={index * 50} data-category={article.category.name}>
 										<a href={`/articles/${article.slug}`}>
 										<div class="img-category">
 											<img src={article.coverImage ? article.coverImage.src : ""} alt={article.title} width="400" height="300" loading="lazy" />
@@ -39,4 +40,5 @@ const { items: articles } = await newtClient.getContents<Article>({
 			</div>
 		</section>
 	</main>
+	<Aside />
 </Layout>

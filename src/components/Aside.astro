@@ -1,0 +1,32 @@
+---
+import '../styles/css/style.css';
+---
+<aside>
+    <div class="btns">
+        <button onclick="filterBlogs('All');" class="btn">All</button>
+        <button onclick="filterBlogs('Next');" class="btn">Next.js</button>
+        <button onclick="filterBlogs('Nuxt');" class="btn">Nuxt.js</button>
+        <button onclick="filterBlogs('Astro');" class="btn">Astro</button>
+        <button onclick="filterBlogs('Gatsby');" class="btn">Gatsby</button>
+    </div>
+</aside>
+
+<script lang="ts">
+	function filterBlogs(category) {
+		var blogs = document.getElementsByClassName("blog-card");
+		if (category === "All") {
+			for (var i = 0; i < blogs.length; i++) {
+				blogs[i].style.display = "block";
+			}
+		} else {
+			for (var i = 0; i < blogs.length; i++) {
+				if (blogs[i].getAttribute('data-category') !== category) {
+					blogs[i].style.display = "none";
+				} else {
+					blogs[i].style.display = "block";
+				}
+			}
+		}
+	}
+</script>
+
