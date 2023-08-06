@@ -202,7 +202,7 @@ aside {
     align-items: center;
     margin-bottom: 20px;
     justify-content: flex-start;
-    i {
+    span {
         margin-right: 2px;
         font-size: 1.1em;
     }
@@ -218,6 +218,9 @@ aside {
         max-height: 500px;
         object-fit: cover;
         margin-bottom: 20px;
+    }
+    p {
+        line-height: 2em;
     }
 }
 
