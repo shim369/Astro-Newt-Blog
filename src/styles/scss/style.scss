@@ -25,6 +25,9 @@ header {
     padding: 20px;
     background: #fff;
     margin-bottom: 80px;
+    @media (max-width: 480px) {
+        margin-bottom: 50px;
+    }
     h1 {
         a {
             text-decoration: none;
@@ -49,6 +52,7 @@ main {
     min-height: 100vh;
     @media (max-width: 800px) {
         width: 100%;
+        order: 2;
     }
 }
 
@@ -73,7 +77,7 @@ main {
             width: 47%;
         }
         @media (max-width: 480px) {
-            width: 100%;
+            width: 97%;
         }
         &:hover {
             box-shadow: none;
@@ -133,7 +137,9 @@ main {
 aside {
     width: 18%;
     @media (max-width: 800px) {
+        order: 1;
         width: 100%;
+        margin-bottom: 50px;
     }
     h2 {
         color: var(--main-color);
@@ -144,7 +150,9 @@ aside {
 
 .btns {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     button {
         margin-bottom: 20px;
         background: var(--main-color);
@@ -152,6 +160,10 @@ aside {
         padding: 20px;
         cursor: pointer;
         border: none;
+        width: 100%;
+        @media (max-width: 800px) {
+            width: 48%;
+        }
         &:hover {
             opacity: .8;
         }
