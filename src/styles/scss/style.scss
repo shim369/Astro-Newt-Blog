@@ -160,7 +160,10 @@ aside {
         padding: 20px;
         cursor: pointer;
         border: none;
-        width: 100%;
+        width: 48%;
+        @media (max-width: 1000px) {
+            width: 100%;
+        }
         @media (max-width: 800px) {
             width: 48%;
         }
