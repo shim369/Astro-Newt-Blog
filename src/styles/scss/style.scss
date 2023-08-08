@@ -50,6 +50,7 @@ header {
 main {
     width: 80%;
     min-height: 100vh;
+    margin-bottom: 50px;
     @media (max-width: 800px) {
         width: 100%;
         order: 2;
@@ -161,14 +162,15 @@ aside {
         cursor: pointer;
         border: none;
         width: 48%;
-        @media (max-width: 1000px) {
+        box-shadow: 0px 11px 15px -4px #cfcece;
+        @media (max-width: 1100px) {
             width: 100%;
         }
         @media (max-width: 800px) {
             width: 48%;
         }
         &:hover {
-            opacity: .8;
+            box-shadow: none;
         }
     }
 }
