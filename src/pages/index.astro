@@ -13,6 +13,7 @@ const { items: articles } = await newtClient.getContents<Article>({
     select: ["title", "slug", "body", "coverImage", "category", "date"],
   },
 })
+
 ---
 
 <Layout title="TECH BLOG">
@@ -26,7 +27,7 @@ const { items: articles } = await newtClient.getContents<Article>({
 								return (
 									<a href={`/articles/${article.slug}`} data-aos-delay={index * 50} data-category={article.category.name} class="blog-item">
 										<div class="blog-img">
-											<Img src={article.coverImage ? article.coverImage.src : ""} alt={article.title} width="400" height="300" />
+											<Img src={article.coverImage ? article.coverImage.src : ""} alt={article.title} width="400" height="300" loading="eager" />
 										</div>
 										<div class="blog-text">
 											<div class="blog-line1">
